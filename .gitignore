@@ -25,3 +25,10 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# Local compilation configuration
+.idea
+# Customize private plugins
+plugins/
+/lib/common/
+lib/main.mapper.g.dart

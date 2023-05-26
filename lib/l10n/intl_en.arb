@@ -1,0 +1,59 @@
+{
+  "tabbar_home": "Home",
+  "tabbar_favorite": "Favorite",
+  "tabbar_mine": "Mine",
+  "tabbar_module": "Module",
+  "tabbar_more": "More",
+
+  "home_banner": "Rolling Banner",
+
+  "login": "Login",
+  "register": "Register",
+
+  "mine_title": "Service",
+  "mine_favorite": "Favorite",
+  "mine_template": "Template",
+
+  "setting_setting": "Setting",
+  "setting_reset": "Reset",
+  "setting_reset_or_not": "Do you want to reset?",
+  "setting_reset_description": "Note: After resetting (Clearing user information and initializing the local database and will clear all saved data), preview the default content",
+  "setting_language": "Change Language",
+  "setting_theme": "Change Theme",
+  "setting_default_system": "System",
+  "setting_system_description": "After it is enabled, it will follow the system to turn on or off the dark mode",
+  "setting_handle_select": "Manual",
+  "setting_normal_type": "Normal",
+  "setting_dark_type": "Dark",
+  "setting_current_language": "Current Language",
+  "setting_auth": "Authentication Setting",
+
+  "home_edit_placeholder" : "Please enter...",
+  "home_edit_preview" : "Preview",
+  "edit_draft" : "Draft",
+  "edit_save_draft" : "Save draft",
+  "home_edit_template" : "Edit Template",
+
+  "setting_about": "About",
+  "setting_about_function_introduced": "Function introduced",
+  "setting_about_comments_suggestions": "Comments or Suggestions",
+  "setting_about_check_new_version": "Checking the new version",
+  "setting_about_all_rights_reserved": "All rights reserved",
+
+  "general_edit" : "Edit",
+  "general_save" : "save",
+  "general_submit" : "Submit",
+  "general_confirm" : "Confirm",
+  "general_close" : "Close",
+  "general_cancel" : "Cancel",
+  "general_add" : "Add",
+  "general_clear" : "Clear",
+
+  "general_pull_up_load" : "Pull up load",
+  "general_Load_Failed_Click_retry" : "Load Failed!Click retry!",
+  "general_release_to_load_more" : "Release to load more",
+  "general_no_more_data" : "No more data",
+
+  "product_stock": "Stock"
+
+}
