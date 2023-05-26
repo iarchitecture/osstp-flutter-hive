@@ -34,6 +34,28 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_localizations:
+    sdk: flutter
+
+  get:
+
+  # run： dart run build_runner build --delete-conflicting-outputs
+  dart_json_mapper:
+
+  # MD5
+  crypto: ^3.0.2
+
+  percent_indicator: 4.2.3
+
+  # custom
+  osstp_main_tabbar:
+    path: plugins/osstp_main_tabbar
+  osstp_local_storage:
+    path: plugins/osstp_local_storage
+  osstp_dynamic_theme:
+    path: plugins/osstp_dynamic_theme
+  osstp_network:
+    path: plugins/osstp_network
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +70,9 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
+  # dart_json_mapper:
+  build_runner: ^2.1.10
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -87,3 +112,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: STLITI
+      fonts:
+        - asset: assets/fonts/STLITI.ttf
+
+
+#  assets:
+#    # assets-generator-begin
+#    # assets/images/*
+#    # assets-generator-end
+flutter_intl:
+  enabled: true

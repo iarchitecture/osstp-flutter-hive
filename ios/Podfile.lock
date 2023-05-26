@@ -1,0 +1,47 @@
+PODS:
+  - Flutter (1.0.0)
+  - osstp_dynamic_theme (0.0.1):
+    - Flutter
+  - osstp_local_storage (0.0.1):
+    - Flutter
+  - osstp_main_tabbar (0.0.1):
+    - Flutter
+  - osstp_network (0.0.1):
+    - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - osstp_dynamic_theme (from `.symlinks/plugins/osstp_dynamic_theme/ios`)
+  - osstp_local_storage (from `.symlinks/plugins/osstp_local_storage/ios`)
+  - osstp_main_tabbar (from `.symlinks/plugins/osstp_main_tabbar/ios`)
+  - osstp_network (from `.symlinks/plugins/osstp_network/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  osstp_dynamic_theme:
+    :path: ".symlinks/plugins/osstp_dynamic_theme/ios"
+  osstp_local_storage:
+    :path: ".symlinks/plugins/osstp_local_storage/ios"
+  osstp_main_tabbar:
+    :path: ".symlinks/plugins/osstp_main_tabbar/ios"
+  osstp_network:
+    :path: ".symlinks/plugins/osstp_network/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  osstp_dynamic_theme: e14320efe3d46959f9849bfea1004f318d61d130
+  osstp_local_storage: f0715031f3afb3f787dc1765606f9de684ad24bd
+  osstp_main_tabbar: 4346e2faa2096d71630a91b686112d9de0bc201a
+  osstp_network: c69b510ca904965f6935cec1503f600d821afe60
+  shared_preferences_foundation: e2dae3258e06f44cc55f49d42024fd8dd03c590c
+
+PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
+
+COCOAPODS: 1.11.2
