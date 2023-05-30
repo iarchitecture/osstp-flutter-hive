@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/common/global/preferences_key.dart';
+import 'package:osstp_flutter_hive/src/main_tabbar/page/main_tabbar_page.dart';
 import 'package:osstp_local_storage/osstp_local_storage.dart';
 
 import '../../../../../common/library/lib_flutter_page_indicator/flutter_page_indicator.dart';
 import '../../../../../common/library/lib_transformer_page_view/parallax.dart';
 import '../../../../../common/library/lib_transformer_page_view/transformer_page_view.dart';
 import '../controller/guide_controller.dart';
-
 
 class GuidePage extends StatefulWidget {
   const GuidePage({Key? key}) : super(key: key);
@@ -125,9 +125,11 @@ class _GuidePageState extends State<GuidePage> {
   }
 
   void newHomePage() {
-    // Application.router
-    //     ?.navigateTo(context, Routes.mainTabBar, replace: true, transitionDuration: const Duration(seconds: 1))
-    //     .then((result) {});
+    // Get.to(const MainTabBarPage());
+    // 禁止返回
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
+      return const MainTabBarPage();
+    }), (route) => route == null);
   }
 
   @override

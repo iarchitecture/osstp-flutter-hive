@@ -1,10 +1,10 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:osstp_dynamic_theme/osstp_dynamic_theme.dart';
-import 'package:osstp_flutter_hive/src/main_tabbar/page/main_tabbar_page.dart';
 import 'package:osstp_flutter_hive/src/modules/others/splash/page/splash_page.dart';
 import 'common/config/application_config.dart';
 import 'common/global/constant.dart';
@@ -12,21 +12,21 @@ import 'common/global/routes.dart';
 import 'generated/l10n.dart';
 import 'initial_error_page.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  try {
+  runZonedGuarded(() async {
     await ApplicationConfig.instance.initConfig();
     OsstpDynamicThemeMode? themeMode = await OsstpDynamicTheme.getThemeMode();
     runApp(MyApp(themeMode: themeMode));
-  } on Error catch (e) {
-    runApp(InitialErrorPage(errorMsg: " ${e.runtimeType.toString()} \n ${e.toString()}\n ${e.stackTrace.toString()}"));
-  }
 
-  if (Platform.isAndroid) {
-    SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-  }
+    if (Platform.isAndroid) {
+      SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+      SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+    }
+  }, (error, stack) {
+    runApp(InitialErrorPage(errorMsg: "ERROR:\n ${error.toString()}\n\n STACK:\n ${stack.toString()}"));
+  });
 }
 
 class MyApp extends StatefulWidget {
@@ -37,6 +37,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    ///
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return OsstpDynamicThemeWidget(
@@ -89,5 +99,6 @@ class _MyAppState extends State<MyApp> {
     // pass the message to your favourite logging package here
     // please note that even if enableLog: false log messages will be pushed in this callback
     // you get check the flag if you want through GetConfig.isLogEnable
+    print("localLogWriter: $text");
   }
 }
