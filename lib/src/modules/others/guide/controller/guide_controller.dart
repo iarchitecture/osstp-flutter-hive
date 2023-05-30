@@ -29,8 +29,8 @@ class GuideController extends SuperController {
   final List<String> titles = ["欢迎使用", "高效稳定", "高度封装", "快速集成"];
   final List<String> subtitles = [
     "HIVE 是功能完善、高性能、可扩展的产品级架构项目",
-    "基于Flutter框架，支持Android和iOS跨平台开发，实现移动App快速、稳定版本迭代",
-    "基础功能插件高度封装，开发人员上手容易，可以把更多的精力专注于产品业务开发",
+    "支持Android和iOS跨平台开发，实现移动App快速、稳定版本迭代",
+    "基础功能插件高度封装，上手容易，可以把更多的精力专注于产品业务开发",
     "低耦合，可以根据自己的产品需求，快速集成、发布高质量产品",
   ];
 

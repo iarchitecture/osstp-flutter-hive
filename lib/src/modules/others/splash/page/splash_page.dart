@@ -6,8 +6,7 @@ import 'package:osstp_local_storage/osstp_local_storage.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../../../../../common/config/application_config.dart';
 import '../../../../../common/global/preferences_key.dart';
-import '../../../../../common/global/routes.dart';
-import '../../../../../common/utils/string_utils.dart';
+import '../../../../main_tabbar/page/main_tabbar_page.dart';
 import '../controller/splash_controller.dart';
 
 class SplashPage extends StatefulWidget {
@@ -30,7 +29,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
       builder: (controller) {
         return Material(
           child: Scaffold(
-            // backgroundColor: const Color(0xffF67900),
+            backgroundColor: const Color(0xffF67900),
             body: Stack(
               children: <Widget>[
                 Center(
@@ -113,14 +112,20 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
   }
 
   Future<void> newPage() async {
-    String routing = "";
     bool? hasDisplay = await OsstpLocalStorage.fromPrefs(LocalStoreKey.guideHasDisplay, isBoolValue: true);
-    if (!itIsEmpty(hasDisplay) && hasDisplay == true) {
-      routing = Routes.mainTabBar;
+    if (hasDisplay == true) {
+      // Get.to(() => const MainTabBarPage());
+      // 禁止返回
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
+        return const MainTabBarPage();
+      }), (route) => route == null);
     } else {
-      routing = Routes.guidePage;
+      // Get.to(() => const GuidePage());
+      // 禁止返回
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
+        return const GuidePage();
+      }), (route) => route == null);
     }
-    // Get.to(const GuidePage());
   }
 
   @override

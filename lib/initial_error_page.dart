@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:osstp_flutter_hive/common/widget/elevated_button_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InitialErrorPage extends StatelessWidget {
   final String? errorMsg;
@@ -11,7 +12,7 @@ class InitialErrorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "OSSTP WIDGET",
+      title: "HIVE",
       home: CustomErrorPage(msg: errorMsg),
     );
   }
@@ -35,11 +36,26 @@ class CustomErrorPage extends StatelessWidget {
         actions: [
           Container(
             margin: const EdgeInsets.all(10),
-            child: ElevatedButton(
-                onPressed: () {
-                  exit(0);
-                },
-                child: const Text("CLOSE")),
+            child: ElevatedButtonWidget.normal(
+              backgroundColor: Colors.red,
+              margin: const EdgeInsets.only(bottom: 50),
+              titleText: const Text('反馈'),
+              onPressed: () {
+                String encodeQueryParameters(Map<String, String> params) {
+                  return params.entries
+                      .map((e) => '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                      .join('&');
+                }
+
+                final Uri emailLaunchUri = Uri(
+                  scheme: 'mailto',
+                  path: '861528778@qq.com',
+                  query: encodeQueryParameters(<String, String>{'subject': '[HIVE]崩溃信息', 'body': msg ?? ''}),
+                );
+
+                launchUrl(emailLaunchUri).then((bool value) {});
+              },
+            ),
           )
         ],
       ),
@@ -54,7 +70,7 @@ class CustomErrorPage extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 15),
                   child: Text(
-                    "App出现错误\n请截图发到邮箱1361016291@qq.com",
+                    "请反馈下面崩溃信息",
                     style: TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
