@@ -30,7 +30,7 @@ class CustomErrorPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black87,
         title: const Text(
-          "ERROR",
+          "CRASH INFO",
         ),
         centerTitle: true,
         actions: [
@@ -38,8 +38,7 @@ class CustomErrorPage extends StatelessWidget {
             margin: const EdgeInsets.all(10),
             child: ElevatedButtonWidget.normal(
               backgroundColor: Colors.red,
-              margin: const EdgeInsets.only(bottom: 50),
-              titleText: const Text('反馈'),
+              titleText: const Text('FEEDBACK'),
               onPressed: () {
                 String encodeQueryParameters(Map<String, String> params) {
                   return params.entries
@@ -50,7 +49,7 @@ class CustomErrorPage extends StatelessWidget {
                 final Uri emailLaunchUri = Uri(
                   scheme: 'mailto',
                   path: '861528778@qq.com',
-                  query: encodeQueryParameters(<String, String>{'subject': '[HIVE]崩溃信息', 'body': msg ?? ''}),
+                  query: encodeQueryParameters(<String, String>{'subject': '[HIVE]CRASH INFO', 'body': msg ?? ''}),
                 );
 
                 launchUrl(emailLaunchUri).then((bool value) {});
@@ -62,28 +61,16 @@ class CustomErrorPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           color: Colors.black87,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  child: Text(
-                    "请反馈下面崩溃信息",
-                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
+          child: ListView(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  msg ?? "",
+                  style: const TextStyle(color: Colors.red),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                  child: Text(
-                    msg ?? "",
-                    style: const TextStyle(color: Colors.red),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

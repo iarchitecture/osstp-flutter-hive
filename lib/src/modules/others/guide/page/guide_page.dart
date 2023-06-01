@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/common/global/preferences_key.dart';
-import 'package:osstp_flutter_hive/src/main_tabbar/page/main_tabbar_page.dart';
 import 'package:osstp_local_storage/osstp_local_storage.dart';
 
 import '../../../../../common/library/lib_flutter_page_indicator/flutter_page_indicator.dart';
 import '../../../../../common/library/lib_transformer_page_view/parallax.dart';
 import '../../../../../common/library/lib_transformer_page_view/transformer_page_view.dart';
+import '../../../../routers/routers_config.dart';
+import '../../../../routers/routers_navigator.dart';
 import '../controller/guide_controller.dart';
 
 class GuidePage extends StatefulWidget {
@@ -110,7 +111,7 @@ class _GuidePageState extends State<GuidePage> {
                             newHomePage();
                           },
                           child: const Text(
-                            "跳过",
+                            "CLOSE",
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
@@ -125,12 +126,14 @@ class _GuidePageState extends State<GuidePage> {
   }
 
   void newHomePage() {
-    // Get.to(const MainTabBarPage());
-    // 禁止返回
-    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
-      return const MainTabBarPage();
-    }), (route) => route == null);
+    Application.router?.navigateTo(context, Routers.mainTabBar, replace: true).then((result) {});
   }
+  // void newHomePage() {
+  //   // Get.to(const MainTabBarPage());
+  //   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
+  //     return const MainTabBarPage();
+  //   }), (route) => route == null);
+  // }
 
   @override
   void dispose() {

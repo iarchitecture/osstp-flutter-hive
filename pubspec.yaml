@@ -44,10 +44,13 @@ dependencies:
 
   # MD5
   crypto: ^3.0.2
-
+  fluro: 2.0.5
   percent_indicator: 4.2.3
   url_launcher:
-
+  flutter_staggered_animations: ^1.1.1
+  local_auth: ^2.1.0
+  cached_network_image: ^3.2.1
+  permission_handler: ^10.0.0
   # custom
   osstp_main_tabbar:
     path: plugins/osstp_main_tabbar

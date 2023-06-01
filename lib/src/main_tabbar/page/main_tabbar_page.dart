@@ -5,7 +5,6 @@ import 'package:osstp_main_tabbar/osstp_main_tabbar.dart';
 import '../controller/main_tabbar_controller.dart';
 import '../view/main_tabbar_indexed_stack_view.dart';
 
-
 class MainTabBarPage extends StatefulWidget {
   const MainTabBarPage({Key? key}) : super(key: key);
 
@@ -19,8 +18,7 @@ class _MainTabBarPageState extends State<MainTabBarPage> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this, initialIndex: 3);
-
+    _tabController = TabController(length: 3, vsync: this, initialIndex: 2);
   }
 
   @override
@@ -43,9 +41,9 @@ class _MainTabBarPageState extends State<MainTabBarPage> with SingleTickerProvid
             () => OsstpMainTabBar(
               badge: controller.badge.value,
               items: controller.tabItemList.map((e) => e.tabBarItem).toList(),
-              selectedItemColor: const Color(0xffFFBB33), //selected color
-              unselectedItemColor: Colors.white60, // pageView default background color
-              backgroundColor: Theme.of(context).primaryColor,
+              // selectedItemColor: const Color(0xffFFBB33), //selected color
+              // unselectedItemColor: Colors.white60, // pageView default background color
+              // backgroundColor: Theme.of(context).primaryColor,
               currentIndex: _tabController.index,
               onTap: (index) {
                 // if (controller.tabItemList[index].pageWidget is MorePage) {

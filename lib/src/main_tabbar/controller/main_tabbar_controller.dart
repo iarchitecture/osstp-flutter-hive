@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:osstp_flutter_hive/main.dart';
+import 'package:osstp_flutter_hive/common/widget/getx_dialog_widget.dart';
+import 'package:osstp_flutter_hive/src/mine/mine/page/mine_page.dart';
 import 'package:osstp_main_tabbar/osstp_main_tabbar.dart';
+import 'package:osstp_network/osstp_network.dart';
 
 import '../../../../../generated/l10n.dart';
 import '../../home/home/page/home_page.dart';
+import '../../modules/module/page/module_page.dart';
+import '../../modules/others/inactive/page/inactive_page.dart';
 
 class TabBarControllers {
   OsstpMainTabBarItem tabBarItem;
@@ -16,24 +20,19 @@ class TabBarControllers {
 class MainTabBarController extends SuperController {
   final authed = false.obs;
   final badge = OsstpBadge(showBadge: true).obs;
+  GlobalKey<NavigatorState>? tempNavigatorKey = GlobalKey();
 
   List<TabBarControllers> tabItemList = [
     TabBarControllers(
         tabBarItem: OsstpMainTabBarItem(label: S.current.tabbar_home, icon: const Icon(Icons.home_rounded)),
-        pageWidget: const HomePage(title: "home",)),
+        pageWidget: const HomePage()),
     TabBarControllers(
         tabBarItem: OsstpMainTabBarItem(
             label: S.current.tabbar_module, icon: const Icon(Icons.view_module_rounded), onlyPoint: true),
-        pageWidget: const HomePage()),
+        pageWidget: ModulePage()),
     TabBarControllers(
-        tabBarItem: OsstpMainTabBarItem(label: S.current.product_stock, icon: const Icon(Icons.store_rounded)),
-        pageWidget: const HomePage(title: '999')),
-    TabBarControllers(
-        tabBarItem: OsstpMainTabBarItem(label: S.current.tabbar_mine, icon: const Icon(Icons.accessibility_rounded)),
-        pageWidget: const HomePage()),
-    TabBarControllers(
-        tabBarItem: OsstpMainTabBarItem(label: S.current.tabbar_more, icon: const Icon(Icons.password_rounded)),
-        pageWidget: const HomePage())
+        tabBarItem: OsstpMainTabBarItem(label: S.current.mine_title, icon: const Icon(Icons.accessibility_rounded)),
+        pageWidget: const MinePage()),
   ];
 
   @override
@@ -52,25 +51,30 @@ class MainTabBarController extends SuperController {
 
   @override
   void onDetached() {
-    // TODO: implement onDetached
-    print("onDetached");
   }
 
   @override
   void onInactive() {
-    // TODO: implement onInactive
-    print("onInactive");
+    osstpLoggerNoStack.d('onInactive: show');
+    if (Get.isDialogOpen == true) {
+      return;
+    }
+    GetXDialog.general(
+      navigatorKey: tempNavigatorKey,
+      pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+        return const InactivePage();
+      },
+    );
   }
 
   @override
-  void onPaused() {
-    // TODO: implement onPaused
-    print("onPaused");
-  }
+  void onPaused() {}
 
   @override
   void onResumed() {
-    // TODO: implement onResumed
-    print("onResumed");
+    osstpLoggerNoStack.d('onResumed: dismiss');
+    if (Navigator.of(Get.context ?? tempNavigatorKey!.currentState!.overlay!.context).canPop()) {
+      Navigator.of(Get.context ?? tempNavigatorKey!.currentState!.overlay!.context).pop();
+    }
   }
 }
