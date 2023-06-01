@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/common/global/constant.dart';
-import 'package:osstp_local_storage/osstp_local_storage.dart';
+import 'package:osstp_flutter_hive/common/theme/theme.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../../../../../common/config/application_config.dart';
-import '../../../../../common/global/preferences_key.dart';
-import '../../../../routers/routers_config.dart';
-import '../../../../routers/routers_navigator.dart';
-import '../controller/splash_controller.dart';
+import '../controller/inactive_controller.dart';
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+class InactivePage extends StatefulWidget {
+  const InactivePage({Key? key}) : super(key: key);
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  State<InactivePage> createState() => _InactivePageState();
 }
 
-class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin {
+class _InactivePageState extends State<InactivePage> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -24,32 +21,26 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SplashController>(
-      init: SplashController(),
+    return GetBuilder<InactiveController>(
+      init: InactiveController(),
       builder: (controller) {
         return Material(
           child: Scaffold(
-            backgroundColor: const Color(0xffF67900),
+            backgroundColor: ThemeColors.primaryBackgroundThemeColor(context),
             body: Stack(
               children: <Widget>[
                 Center(
                     child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.hive_rounded,
-                      color: Colors.white,
-                      size: 120,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30, bottom: 117.0),
-                      child: linerIndicator(voidCallback: () {
-                        newPage(context);
-                      }),
-                    ),
-                  ],
-                )),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.hive_rounded,
+                          color: Colors.white,
+                          size: 120,
+                        ),
+                      ],
+                    )),
                 Container(
                   alignment: Alignment.bottomCenter,
                   margin: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
@@ -101,7 +92,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
       animationDuration: 1500,
       percent: 1.0,
       barRadius: const Radius.circular(5),
-      progressColor: Colors.cyan,
+      progressColor: Colors.transparent,
       alignment: MainAxisAlignment.center,
       onAnimationEnd: () {
         if (voidCallback != null) {
@@ -111,31 +102,6 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     );
   }
 
-  Future<void> newPage(BuildContext context) async {
-    String routing = "";
-    bool? hasDisplay = await OsstpLocalStorage.fromPrefs(LocalStoreKey.guideHasDisplay, isBoolValue: true);
-    if (hasDisplay == true) {
-      routing = Routers.mainTabBar;
-    } else {
-      routing = Routers.guidePage;
-    }
-    Application.push(this.context, routing, replace: true)?.then((value) {});
-  }
-
-  // Future<void> newPage() async {
-  //   bool? hasDisplay = await OsstpLocalStorage.fromPrefs(LocalStoreKey.guideHasDisplay, isBoolValue: true);
-  //   if (hasDisplay == true) {
-  //     // Get.to(() => const MainTabBarPage());
-  //     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
-  //       return const MainTabBarPage();
-  //     }), (route) => route == null);
-  //   } else {
-  //     // Get.to(() => const GuidePage());
-  //     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
-  //       return const GuidePage();
-  //     }), (route) => route == null);
-  //   }
-  // }
 
   @override
   void dispose() {
