@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../common/library/lib_refresh/smart_refresher.dart';
+import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 import '../../../mine/view/mine_body_view.dart';
 
 class MineServiceController extends SuperController {

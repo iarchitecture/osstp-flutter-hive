@@ -18,7 +18,7 @@ class ModulePage extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           appBar: MainAppBar(
-            title: S.of(context).tabbar_module,
+            title: S.current.tabbar_module,
             rightActionList: [" + "],
             onTapFunction: (OnTapModel tapModel) {},
           ),

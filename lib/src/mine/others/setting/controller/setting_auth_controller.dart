@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:osstp_network/osstp_network.dart';
 
+import '../../../../../common/utils/logger.dart';
 import '../../../../routers/routers_config.dart';
 import '../../../../routers/routers_navigator.dart';
 

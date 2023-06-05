@@ -51,6 +51,13 @@ dependencies:
   local_auth: ^2.1.0
   cached_network_image: ^3.2.1
   permission_handler: ^10.0.0
+  flutter_easyloading: ^3.0.5
+  card_swiper: ^2.0.4
+  # image_picker:
+  image_picker: 0.8.6
+  video_player: ^2.1.4
+  #
+  pull_to_refresh_flutter3: ^2.0.1
   # custom
   osstp_main_tabbar:
     path: plugins/osstp_main_tabbar

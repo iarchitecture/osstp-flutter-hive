@@ -21,7 +21,7 @@ class MinePage extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           appBar: MainAppBar(
-              title: S.of(context).tabbar_mine,
+              title: S.current.tabbar_mine,
               rightActionList:  [controller.logout.value] ,
               onTapFunction: (OnTapModel tapModel) {
                 // OsstpDialog.getxDialog(
@@ -76,10 +76,10 @@ class MinePage extends StatelessWidget {
                             ?.navigateTo(context, controller.itemList[callbackIndex].routesName!)
                             .then((result) {});
                       } else {
-                        // OsstpDialog.getxDialog(
-                        //   title: "需要认证",
-                        //   content: "authed = true 时，完成跳转画面",
-                        // );
+                        GetXDialog.show(
+                          title: "需要认证",
+                          content: "authed = true 时，完成跳转画面",
+                        );
                       }
                     },
                     onTapCallback: (callbackIndex) {

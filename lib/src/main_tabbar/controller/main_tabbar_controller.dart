@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/common/widget/getx_dialog_widget.dart';
 import 'package:osstp_flutter_hive/src/mine/mine/page/mine_page.dart';
 import 'package:osstp_main_tabbar/osstp_main_tabbar.dart';
-import 'package:osstp_network/osstp_network.dart';
-
 import '../../../../../generated/l10n.dart';
+import '../../../common/utils/logger.dart';
 import '../../home/home/page/home_page.dart';
 import '../../modules/module/page/module_page.dart';
 import '../../modules/others/inactive/page/inactive_page.dart';
