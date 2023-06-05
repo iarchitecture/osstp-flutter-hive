@@ -133,7 +133,7 @@ class HomePage extends StatelessWidget {
                                       margin: const EdgeInsets.only(top: 5),
                                       child: Text(
                                         stringValue(controller.newsList[index].description),
-                                        style: const TextStyle(fontSize: 13),
+                                        style: const TextStyle(fontSize: 10),
                                         maxLines: 2,
                                       ),
                                     ),
@@ -144,7 +144,7 @@ class HomePage extends StatelessWidget {
                                         children: [
                                           Text(
                                             '${stringValue(controller.newsList[index].source)}：${stringValue(controller.newsList[index].ctime)}',
-                                            style: const TextStyle(fontSize: 13),
+                                            style: const TextStyle(fontSize: 10),
                                           ),
                                         ],
                                       ),

@@ -54,10 +54,10 @@ class MainTabBarController extends SuperController {
 
   @override
   void onInactive() {
-    osstpLoggerNoStack.d('onInactive: show');
     if (Get.isDialogOpen == true) {
       return;
     }
+    osstpLogger.d('Inactive Page: show');
     GetXDialog.general(
       navigatorKey: tempNavigatorKey,
       pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
@@ -71,8 +71,8 @@ class MainTabBarController extends SuperController {
 
   @override
   void onResumed() {
-    osstpLoggerNoStack.d('onResumed: dismiss');
     if (Navigator.of(Get.context ?? tempNavigatorKey!.currentState!.overlay!.context).canPop()) {
+      osstpLogger.d('Inactive Page: dismiss');
       Navigator.of(Get.context ?? tempNavigatorKey!.currentState!.overlay!.context).pop();
     }
   }
