@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 import '../../../../../common/config/application_config.dart';
-import '../../../../../common/library/lib_refresh/smart_refresher.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../mine/view/mine_body_view.dart';
 
