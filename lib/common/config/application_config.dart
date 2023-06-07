@@ -1,3 +1,4 @@
+import 'package:osstp_flutter_hive/common/global/preferences_key.dart';
 import 'package:osstp_local_storage/osstp_local_storage.dart';
 import 'package:osstp_network/osstp_network.dart';
 
@@ -23,6 +24,11 @@ class ApplicationConfig {
     OsstpNetworkConfig.instance.config(
         baseUrl: "http://api.tianapi.com",
         otherParameter: {'key': '8d6be0edba1b9edc4ed11353ce494948', 'num': 10},
-        loggerLevel: OsstpNetworkLogLevel.headers);
+        loggerLevel: OsstpNetworkLogLevel.headerBody);
+  }
+  resetPreferencesData() async {
+    bool result1 = await OsstpLocalStorage.removePrefs(LocalStoreKey.guideHasDisplay);
+
+    return result1;
   }
 }

@@ -3,18 +3,18 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 import '../../../../../common/config/application_config.dart';
+import '../../../../../common/utils/selected_item_model.dart';
 import '../../../../../generated/l10n.dart';
-import '../../../mine/view/mine_body_view.dart';
 
 class SettingAboutController extends SuperController {
   final version = ApplicationConfig.osstpBundleVersion.obs;
 
-  final itemList = <SettingItemModel>[].obs;
+  final itemList = <SelectedItemModel>[].obs;
 
   RefreshController refreshController = RefreshController(initialRefresh: false);
 
   void onRefresh() async {
-    itemList.add(SettingItemModel(title: S.current.setting_about_function_introduced, child: Column(
+    itemList.add(SelectedItemModel(title: S.current.setting_about_function_introduced, child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
         Text("1、用户注册、登录、退出；"),
@@ -22,8 +22,8 @@ class SettingAboutController extends SuperController {
         Text("3、模版创建、新增、编辑；"),
       ],
     )));
-    itemList.add(SettingItemModel(title: S.current.setting_about_comments_suggestions, image: Icons.edit_rounded, routesName: ""));
-    itemList.add(SettingItemModel(title: S.current.setting_about_check_new_version, image: Icons.fiber_new, routesName: ""));
+    itemList.add(SelectedItemModel(title: S.current.setting_about_comments_suggestions, image: Icons.edit_rounded, routesName: ""));
+    itemList.add(SelectedItemModel(title: S.current.setting_about_check_new_version, image: Icons.fiber_new, routesName: ""));
 
 
     // monitor network fetch

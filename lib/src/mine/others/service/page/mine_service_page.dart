@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 import '../../../../../common/widget/line_view.dart';
 import '../../../../../common/widget/main_app_bar.dart';
@@ -16,50 +15,9 @@ class MineServicePage extends StatelessWidget {
       initState: (state) {},
       builder: (controller) {
         return Scaffold(
-          appBar: MainAppBar(title: S.of(context).mine_title),
+          appBar: MainAppBar(title: S.of(context).setting_about),
           body: SafeArea(
-            child: Obx(
-              () => ListView(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 15.0),
-                    child: Icon(
-                      Icons.hive_rounded,
-                      size: 90,
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Text("HIVE"),
-                        Text("Version ${controller.version.value}"),
-                      ],
-                    ),
-                  ),
-                  AnimationLimiter(
-                      child: ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    padding: const EdgeInsets.only(top: 20, bottom: 77),
-                    itemCount: controller.itemList.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return AnimationConfiguration.staggeredList(
-                        position: index,
-                        duration: const Duration(milliseconds: 500),
-                        child: SlideAnimation(
-                          verticalOffset: 50.0,
-                          child: FadeInAnimation(
-                            child: buildItem(context, controller, index),
-                          ),
-                        ),
-                      );
-                    },
-                  ))
-                ],
-              ),
-            ),
+            child: Container(color: Colors.green,)
           ),
         );
       },

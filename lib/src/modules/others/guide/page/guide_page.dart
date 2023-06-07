@@ -1,3 +1,4 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/common/global/preferences_key.dart';
@@ -105,10 +106,10 @@ class _GuidePageState extends State<GuidePage> {
                       offstage: controller.index.value == controller.imagesData.length - 1 ? false : true,
                       child: Container(
                         alignment: Alignment.topRight,
-                        margin: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0),
+                        margin: const EdgeInsets.fromLTRB(0.0, 40.0, 10.0, 0.0),
                         child: TextButton(
                           onPressed: () {
-                            newHomePage();
+                            newHomePage(context);
                           },
                           child: const Text(
                             "CLOSE",
@@ -125,8 +126,13 @@ class _GuidePageState extends State<GuidePage> {
         });
   }
 
-  void newHomePage() {
-    Application.router?.navigateTo(context, Routers.mainTabBar, replace: true).then((result) {});
+  void newHomePage(BuildContext context) {
+    final args = context.settings?.arguments;
+    if (args != null) {
+      Application.pop(this.context);
+    } else {
+      Application.router?.navigateTo(context, Routers.mainTabBar, replace: true).then((result) {});
+    }
   }
   // void newHomePage() {
   //   // Get.to(const MainTabBarPage());

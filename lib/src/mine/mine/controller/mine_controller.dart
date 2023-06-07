@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import '../../../../common/utils/selected_item_model.dart';
 import '../../../../generated/l10n.dart';
 import '../../../routers/routers_config.dart';
-import '../view/mine_body_view.dart';
 
 class MineController extends SuperController {
   final logout = ''.obs;
 
   final itemList = [
-    SettingItemModel(
-        title: S.current.mine_title, image: Icons.home_repair_service_outlined, routesName: Routers.settingAboutPage),
-    // SettingItemModel(title: S.current.mine_favorite, image: Icons.collections, routesName: Routers.favoritePage),
-    SettingItemModel(title: S.current.mine_template, image: Icons.abc_rounded),
-    SettingItemModel(title: S.current.setting_setting, image: Icons.settings, routesName: Routers.settingHomePage),
+    SelectedItemModel(
+        title: S.current.setting_about, image: Icons.hive_rounded, routesName: Routers.settingAboutPage),
+    // SelectedItemModel(title: S.current.mine_favorite, image: Icons.collections, routesName: Routers.favoritePage),
+    SelectedItemModel(title: S.current.mine_template, image: Icons.abc_rounded),
+    SelectedItemModel(title: S.current.setting_setting, image: Icons.settings, routesName: Routers.settingHomePage),
   ].obs;
 
   @override

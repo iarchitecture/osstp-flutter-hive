@@ -1,82 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import '../../../../common/utils/selected_item_model.dart';
 import '../../../../generated/l10n.dart';
+import '../../../routers/routers_config.dart';
 
 class ModuleController extends SuperController {
-
-  // List<SettingItemModel> itemList = [
-  //   // SettingItemModel(title: S.current.mine_favorite, image: Icons.collections, routesName: Routes.favoritePage),
-  //   // SettingItemModel(title: "朋友圈", image: Icons.people_outline_outlined),
-  //   // SettingItemModel(title: "卡包", image: Icons.shopping_bag),
-  //   // SettingItemModel(title: "表情", image: Icons.tag_faces_sharp),
-  //   // SettingItemModel(title: "设置", image: Icons.settings, routesName: Routes.settingHomePage),
-  // ].obs;
+  List<SelectedItemModel> itemList = [
+    SelectedItemModel(title: '启动画面', image: Icons.collections, routesName: Routers.splashPage),
+    SelectedItemModel(title: "引导画面", image: Icons.settings,routesName: Routers.guidePage),
+    SelectedItemModel(title: "广告", image: Icons.settings,routesName: Routers.advertisementPage),
+  ].obs;
 
   @override
   void onInit() {
     super.onInit();
-    network();
-  }
-
-  network() {
-    update();
   }
 
   @override
   void onReady() {
-    print('The build method is done. '
-        'Your controller is ready to call dialogs and snackbars');
     super.onReady();
   }
 
   @override
   void onClose() {
-    print('onClose called');
     super.onClose();
   }
 
   @override
   void didChangeMetrics() {
-    print('the window size did change');
     super.didChangeMetrics();
   }
 
   @override
   void didChangePlatformBrightness() {
-    print('platform change ThemeMode');
     super.didChangePlatformBrightness();
   }
 
   @override
   Future<bool> didPushRoute(String route) {
-    print('the route $route will be open');
     return super.didPushRoute(route);
   }
 
   @override
   Future<bool> didPopRoute() {
-    print('the current route will be closed');
     return super.didPopRoute();
   }
 
   @override
-  void onDetached() {
-    print('onDetached called');
-  }
+  void onDetached() {}
 
   @override
-  void onInactive() {
-    print('onInative called');
-  }
+  void onInactive() {}
 
   @override
-  void onPaused() {
-    print('onPaused called');
-  }
+  void onPaused() {}
 
   @override
-  void onResumed() {
-    print('onResumed called');
-  }
+  void onResumed() {}
 }

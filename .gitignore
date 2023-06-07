@@ -32,3 +32,5 @@ doc/api/
 plugins/
 /lib/common/
 lib/main.mapper.g.dart
+/build.yaml
+android/app/build.gradle

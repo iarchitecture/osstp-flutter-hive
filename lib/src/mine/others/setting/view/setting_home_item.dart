@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../../common/theme/theme.dart';
+import '../../../../../common/utils/selected_item_model.dart';
 import '../../../../../common/widget/inkWell_button.dart';
 import '../../../../../common/widget/line_view.dart';
-import '../../../mine/view/mine_body_view.dart';
 
 /// 设定主画面 list item
 class SettingHomeItem extends StatelessWidget {
@@ -16,7 +16,7 @@ class SettingHomeItem extends StatelessWidget {
   }) : super(key: key);
 
   final BuildContext context;
-  final List<SettingItemModel> itemList;
+  final List<SelectedItemModel> itemList;
   final int index;
   final List<int> needSpaceList;
   final ValueChanged onTapCallback;

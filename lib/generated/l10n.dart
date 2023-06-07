@@ -130,16 +130,6 @@ class S {
     );
   }
 
-  /// `Service`
-  String get mine_title {
-    return Intl.message(
-      'Service',
-      name: 'mine_title',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Favorite`
   String get mine_favorite {
     return Intl.message(
