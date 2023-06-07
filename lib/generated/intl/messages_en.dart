@@ -49,7 +49,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "mine_favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "mine_template": MessageLookupByLibrary.simpleMessage("Template"),
-        "mine_title": MessageLookupByLibrary.simpleMessage("Service"),
         "product_stock": MessageLookupByLibrary.simpleMessage("Stock"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "setting_about": MessageLookupByLibrary.simpleMessage("About"),

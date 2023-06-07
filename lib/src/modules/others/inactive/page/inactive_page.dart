@@ -27,56 +27,59 @@ class _InactivePageState extends State<InactivePage> with SingleTickerProviderSt
         return Material(
           child: Scaffold(
             backgroundColor: ThemeColors.primaryBackgroundThemeColor(context),
-            body: Stack(
-              children: <Widget>[
-                Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.hive_rounded,
-                          color: Colors.white,
-                          size: 120,
-                        ),
-                      ],
-                    )),
-                Container(
-                  alignment: Alignment.bottomCenter,
-                  margin: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          ApplicationConfig.osstpBundleName,
-                          style: const TextStyle(
-                              color: Color(0xFF00D6F7),
-                              fontFamily: ConstantFonts.STLITI,
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Row(
+            body: WillPopScope(
+              onWillPop: () async { return false; },
+              child: Stack(
+                children: <Widget>[
+                  Center(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
                           Icon(
-                            Icons.android_rounded,
+                            Icons.hive_rounded,
                             color: Colors.white,
-                            size: 20,
-                          ),
-                          Icon(
-                            Icons.apple_rounded,
-                            color: Colors.white,
-                            size: 20,
+                            size: 120,
                           ),
                         ],
-                      ),
-                    ],
+                      )),
+                  Container(
+                    alignment: Alignment.bottomCenter,
+                    margin: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            ApplicationConfig.osstpBundleName,
+                            style: const TextStyle(
+                                color: Color(0xFF00D6F7),
+                                fontFamily: ConstantFonts.STLITI,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.android_rounded,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                            Icon(
+                              Icons.apple_rounded,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

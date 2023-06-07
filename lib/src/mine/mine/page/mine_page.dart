@@ -22,7 +22,7 @@ class MinePage extends StatelessWidget {
         return Scaffold(
           appBar: MainAppBar(
               title: S.current.tabbar_mine,
-              rightActionList:  [controller.logout.value] ,
+              rightActionList: [controller.logout.value],
               onTapFunction: (OnTapModel tapModel) {
                 // OsstpDialog.getxDialog(
                 //   dialogWidget: Padding(
@@ -48,51 +48,48 @@ class MinePage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return index == 0
                       ? MineHeaderView(
-                    authed: false,
-                    avatarCallback: () {
-                      // 头像
-                    },
-                    notAuthedCallback: () {
-                      // Application.navigateWithParamsTo(context, Routes.loginPage)?.then((result) {
-                      //   if (result is UserModel) {
-                      //     if (!itIsEmpty(result.userName) && !itIsEmpty(result.userId)) {
-                      //       controller.refreshState(result);
-                      //     }
-                      //   }
-                      // });
-                    },
-                    itemCallback: () {
-                      Application.push(context, Routers.mineServicePage)?.then((result) {});
-                    },
-                  )
+                          authed: false,
+                          avatarCallback: () {
+                            // 头像
+                          },
+                          notAuthedCallback: () {
+                            // Application.navigateWithParamsTo(context, Routes.loginPage)?.then((result) {
+                            //   if (result is UserModel) {
+                            //     if (!itIsEmpty(result.userName) && !itIsEmpty(result.userId)) {
+                            //       controller.refreshState(result);
+                            //     }
+                            //   }
+                            // });
+                          },
+                          itemCallback: () {
+                            Application.push(context, Routers.settingAboutPage)?.then((result) {});
+                          },
+                        )
                       : MineBodyWidget(
-                    context: context,
-                    index: index - 1,
-                    authed: true,
-                    itemList: controller.itemList,
-                    notAuthedCallback: (callbackIndex) {
-                      if (controller.itemList[callbackIndex].routesName != null) {
-                        Application.router
-                            ?.navigateTo(context, controller.itemList[callbackIndex].routesName!)
-                            .then((result) {});
-                      } else {
-                        GetXDialog.show(
-                          title: "需要认证",
-                          content: "authed = true 时，完成跳转画面",
+                          context: context,
+                          index: index - 1,
+                          authed: true,
+                          itemList: controller.itemList,
+                          notAuthedCallback: (callbackIndex) {
+                            if (controller.itemList[callbackIndex].routesName != null) {
+                              Application.push(context, controller.itemList[callbackIndex].routesName!)
+                                  ?.then((result) {});
+                            } else {
+                              GetXDialog.show(
+                                title: "需要认证",
+                                content: "authed = true 时，完成跳转画面",
+                              );
+                            }
+                          },
+                          onTapCallback: (callbackIndex) {
+                            if (controller.itemList[callbackIndex].routesName == null) {
+                              GetXDialogDebug(controller.itemList[callbackIndex].title);
+                            } else {
+                              Application.push(context, controller.itemList[callbackIndex].routesName!)
+                                  ?.then((result) {});
+                            }
+                          },
                         );
-                      }
-                    },
-                    onTapCallback: (callbackIndex) {
-                      if (controller.itemList[callbackIndex].routesName == null) {
-                        GetXDialogDebug(
-                            controller.itemList[callbackIndex].title);
-                      } else {
-                        Application.router
-                            ?.navigateTo(context, controller.itemList[callbackIndex].routesName!)
-                            .then((result) {});
-                      }
-                    },
-                  );
                 },
               ),
             ),

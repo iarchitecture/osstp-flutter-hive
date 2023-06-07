@@ -2,9 +2,11 @@ import 'dart:convert' as convert;
 import 'package:fluro/fluro.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:osstp_flutter_hive/src/modules/others/advertisement/page/advertisement_page.dart';
 
 import '../main_tabbar/page/main_tabbar_page.dart';
 import '../mine/others/setting/page/setting_about_page.dart';
+import '../mine/others/setting/page/setting_auth_page.dart';
 import '../mine/others/setting/page/setting_change_language_page.dart';
 import '../mine/others/setting/page/setting_change_theme_page.dart';
 import '../mine/others/setting/page/setting_home_page.dart';
@@ -55,13 +57,13 @@ var splashPageHandler = Handler(handlerFunc: (BuildContext? context, Map<String,
 var guidePageRouteHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return const GuidePage();
 });
-
+var advertisementPageRouteHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return const AdvertisementPage();
+});
 var mainTabBarRouteHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return const MainTabBarPage();
 });
-// var editPageRouteHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-//   return EditPage();
-// });
+
 // var editPreviewPageRouteHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
 //   return EditPreviewPage();
 // });

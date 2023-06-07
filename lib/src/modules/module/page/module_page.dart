@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:osstp_flutter_hive/common/utils/push_arguments.dart';
 import 'package:osstp_flutter_hive/common/widget/main_app_bar.dart';
 import 'package:osstp_flutter_hive/src/modules/module/view/module_list_item.dart';
-import 'dart:convert' as convert;
+import 'package:osstp_main_tabbar/osstp_main_tabbar.dart';
 import '../../../../generated/l10n.dart';
 import '../../../routers/routers_navigator.dart';
 import '../controller/module_controller.dart';
 
 class ModulePage extends StatelessWidget {
-  ModulePage({Key? key}) : super(key: key);
+  const ModulePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +19,31 @@ class ModulePage extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           appBar: MainAppBar(
-            title: S.current.tabbar_module,
+            title: '${S.current.tabbar_module}(${controller.itemList.length})',
             rightActionList: [" + "],
-            onTapFunction: (OnTapModel tapModel) {},
+            onTapFunction: (OnTapModel tapModel) {
+              osstpBadge.badgeChange(index: 0, badge: '5');
+              osstpBadge.badgeChange(index: 1, badge: '105'); //onlyPoint=true
+              osstpBadge.badgeChange(index: 2, badge: '105');
+            },
           ),
           body: SafeArea(
-            top: false,
             child: ListView.builder(
-              itemCount: 3, //controller.itemList.length,
+              itemCount: controller.itemList.length,
               itemBuilder: (BuildContext context, int index) {
                 return ModuleListItem(
-                    selected: true,
-                    title: '${index}', voidCallback: () {
-                  // Application.router
-                  //     ?.navigateTo(context, controller.itemList[callbackIndex].routesName!)
-                  //     .then((result) {});
-                },);
+                  selected: true,
+                  title: controller.itemList[index].title,
+                  voidCallback: () {
+                    Application.push(
+                      context,
+                      controller.itemList[index].routesName!,
+                      routeSettings: RouteSettings(
+                        arguments: PushArguments(action: true), // 参数识别关闭方式
+                      ),
+                    )?.then((result) {});
+                  },
+                );
               },
             ),
           ),

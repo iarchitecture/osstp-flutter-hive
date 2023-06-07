@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:osstp_flutter_hive/common/widget/inkWell_button.dart';
-import '../../../../../common/theme/theme.dart';
+import '../../../../../common/config/application_config.dart';
+import '../../../../../common/utils/selected_item_model.dart';
+import '../../../../../common/utils/string_utils.dart';
 import '../../../../../common/widget/elevated_button_widget.dart';
 import '../../../../../common/widget/getx_dialog_widget.dart';
 import '../../../../../common/widget/main_app_bar.dart';
 import '../../../../routers/routers_config.dart';
 import '../../../../routers/routers_navigator.dart';
-import '../../../mine/view/mine_body_view.dart';
 import '../view/setting_home_item.dart';
 import '../../../../../generated/l10n.dart';
 
@@ -19,14 +19,14 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
-  List<SettingItemModel> itemList = [
-    SettingItemModel(
+  List<SelectedItemModel> itemList = [
+    SelectedItemModel(
         title: S.current.setting_language, image: Icons.language, routesName: Routers.settingChangeLanguagePage),
-    SettingItemModel(
+    SelectedItemModel(
         title: S.current.setting_theme, image: Icons.color_lens_outlined, routesName: Routers.settingChangeThemePage),
-    SettingItemModel(
+    SelectedItemModel(
         title: S.current.setting_auth, image: Icons.screen_lock_portrait, routesName: Routers.settingAuthPage),
-    SettingItemModel(
+    SelectedItemModel(
         title: S.current.setting_about, image: Icons.description_rounded, routesName: Routers.settingAboutPage),
   ];
 
@@ -75,10 +75,10 @@ class _SettingPageState extends State<SettingPage> {
                                   title: S.of(context).setting_reset_or_not,
                                   showCancelButton: true,
                                   onConfirm: () async {
-                                    // bool result = await ApplicationConfig.instance.resetPreferencesData();
-                                    // if (!itIsEmpty(result) && result == true) {
+                                    bool result = await ApplicationConfig.instance.resetPreferencesData();
+                                    if (result == true) {
                                       Application.popToSplashPage(context);
-                                    // }
+                                    }
                                   });
                             },
                           ),

@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:osstp_dynamic_theme/osstp_dynamic_theme.dart';
+import 'package:osstp_flutter_hive/src/routers/route_observer.dart';
 import 'package:osstp_flutter_hive/src/routers/routers_config.dart';
 import 'package:osstp_flutter_hive/src/routers/routers_navigator.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
@@ -20,8 +21,6 @@ import 'main.mapper.g.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  /// dart_json_mapper: ^2.2.5+3
   initializeJsonMapper();
   runZonedGuarded(() async {
     await ApplicationConfig.instance.initConfig();
@@ -51,7 +50,7 @@ class _MyAppState extends State<MyApp> {
 
     /// init router
     final router = FluroRouter();
-    Routers.configureRoutes(router);
+    RoutersConfig.configureRoutes(router);
     Application.router = router;
   }
 
@@ -89,7 +88,7 @@ class _MyAppState extends State<MyApp> {
           themeMode: systemThemeModel,
           onGenerateRoute: Application.router?.generator,
           initialRoute: Routers.splashPage,
-          // navigatorObservers: [MyRouteObserver()],
+          navigatorObservers: [GlobalRouteObserver()],
           locale: Get.deviceLocale,
           supportedLocales: S.delegate.supportedLocales,
           localizationsDelegates: const [

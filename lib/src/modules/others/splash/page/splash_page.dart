@@ -1,6 +1,8 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/common/global/constant.dart';
+import 'package:osstp_flutter_hive/common/utils/push_arguments.dart';
 import 'package:osstp_local_storage/osstp_local_storage.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../../../../../common/config/application_config.dart';
@@ -119,7 +121,12 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     } else {
       routing = Routers.guidePage;
     }
-    Application.push(this.context, routing, replace: true)?.then((value) {});
+    final args = context.settings?.arguments;
+    if (args != null) {
+      Application.pop(this.context);
+    } else {
+      Application.push(this.context, routing, replace: true)?.then((value) {});
+    }
   }
 
   // Future<void> newPage() async {

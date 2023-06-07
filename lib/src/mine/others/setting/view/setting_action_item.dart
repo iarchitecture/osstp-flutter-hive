@@ -49,7 +49,7 @@ class SettingActionItem extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.only(right: 10),
+                margin: const EdgeInsets.only(right: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

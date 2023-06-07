@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import '../../../../common/utils/selected_item_model.dart';
 import '../../../../generated/l10n.dart';
+import '../../../routers/routers_config.dart';
 
 class ModuleController extends SuperController {
-  // List<SettingItemModel> itemList = [
-  //   // SettingItemModel(title: S.current.mine_favorite, image: Icons.collections, routesName: Routes.favoritePage),
-  //   // SettingItemModel(title: "朋友圈", image: Icons.people_outline_outlined),
-  //   // SettingItemModel(title: "卡包", image: Icons.shopping_bag),
-  //   // SettingItemModel(title: "表情", image: Icons.tag_faces_sharp),
-  //   // SettingItemModel(title: "设置", image: Icons.settings, routesName: Routes.settingHomePage),
-  // ].obs;
+  List<SelectedItemModel> itemList = [
+    SelectedItemModel(title: '启动画面', image: Icons.collections, routesName: Routers.splashPage),
+    SelectedItemModel(title: "引导画面", image: Icons.settings,routesName: Routers.guidePage),
+    SelectedItemModel(title: "广告", image: Icons.settings,routesName: Routers.advertisementPage),
+  ].obs;
 
   @override
   void onInit() {
     super.onInit();
-    network();
-  }
-
-  network() {
-    update();
   }
 
   @override

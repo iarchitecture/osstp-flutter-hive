@@ -1,23 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:osstp_flutter_hive/common/widget/elevated_button_widget.dart';
 import 'package:osstp_flutter_hive/common/widget/inkWell_button.dart';
 
 import '../../../../common/theme/theme.dart';
+import '../../../../common/utils/selected_item_model.dart';
 import '../../../../common/widget/line_view.dart';
-
-
-class SettingItemModel {
-  final String? title;
-  final IconData? image;
-  final Widget? child;
-  final String? routesName;
-  SettingItemModel({
-    required this.title,
-    this.image,
-    this.child,
-    this.routesName,
-  });
-}
 
 class MineBodyWidget extends StatelessWidget {
   const MineBodyWidget({
@@ -31,7 +17,7 @@ class MineBodyWidget extends StatelessWidget {
   }) : super(key: key);
 
   final BuildContext context;
-  final List<SettingItemModel> itemList;
+  final List<SelectedItemModel> itemList;
   final int index;
 
   /// 认证成功
@@ -63,8 +49,7 @@ class MineBodyWidget extends StatelessWidget {
             // },
             child: Container(
               color: Colors.transparent,
-              margin: const EdgeInsets.only(
-                  left: 10, right: 10, top: 15, bottom: 15),
+              margin: const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 15),
               child: Row(
                 children: [
                   Container(padding: const EdgeInsets.only(right: 10), child: Icon(itemList[index].image, size: 16.0)),

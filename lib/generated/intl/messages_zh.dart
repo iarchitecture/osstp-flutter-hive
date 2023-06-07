@@ -45,7 +45,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "mine_favorite": MessageLookupByLibrary.simpleMessage("收藏"),
         "mine_template": MessageLookupByLibrary.simpleMessage("模版"),
-        "mine_title": MessageLookupByLibrary.simpleMessage("服务"),
         "product_stock": MessageLookupByLibrary.simpleMessage("库存"),
         "register": MessageLookupByLibrary.simpleMessage("注册"),
         "setting_about": MessageLookupByLibrary.simpleMessage("关于"),

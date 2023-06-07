@@ -28,9 +28,9 @@ class MainTabBarController extends SuperController {
     TabBarControllers(
         tabBarItem: OsstpMainTabBarItem(
             label: S.current.tabbar_module, icon: const Icon(Icons.view_module_rounded), onlyPoint: true),
-        pageWidget: ModulePage()),
+        pageWidget: const ModulePage()),
     TabBarControllers(
-        tabBarItem: OsstpMainTabBarItem(label: S.current.mine_title, icon: const Icon(Icons.accessibility_rounded)),
+        tabBarItem: OsstpMainTabBarItem(label: S.current.tabbar_mine, icon: const Icon(Icons.accessibility_rounded)),
         pageWidget: const MinePage()),
   ];
 
@@ -49,8 +49,7 @@ class MainTabBarController extends SuperController {
   }
 
   @override
-  void onDetached() {
-  }
+  void onDetached() {}
 
   @override
   void onInactive() {
