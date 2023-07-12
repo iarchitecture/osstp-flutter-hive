@@ -56,12 +56,12 @@ class HomeController extends SuperController {
           } else {
             refreshController.refreshFailed();
             osstpLogger.e(value.data?.msg);
-            Loading.showError(status: '服务端数据异常');
+            LoadingWidget.showError(status: '服务端数据异常');
           }
         } else {
           refreshController.refreshFailed();
           osstpLogger.e(value.errorMessage);
-          Loading.showError(status: '数据解析异常');
+          LoadingWidget.showError(status: '数据解析异常');
         }
       });
     } else {

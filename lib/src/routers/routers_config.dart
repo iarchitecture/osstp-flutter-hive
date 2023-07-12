@@ -58,7 +58,8 @@ class RoutersConfig {
         transitionDuration: const Duration(milliseconds: 500));
 
     ///
-    router.define(Routers.advertisementPage, handler: advertisementPageRouteHandler, transitionType: TransitionType.inFromRight);
+    router.define(Routers.advertisementPage,
+        handler: advertisementPageRouteHandler, transitionType: TransitionType.inFromRight);
     router.define(Routers.settingHomePage, handler: settingPageHandler, transitionType: TransitionType.inFromRight);
     router.define(Routers.settingChangeLanguagePage,
         handler: settingChangeLanguagePageHandler, transitionType: TransitionType.inFromRight);

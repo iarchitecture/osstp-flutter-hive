@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:osstp_dynamic_theme/osstp_dynamic_theme.dart';
@@ -108,10 +108,10 @@ class _MyAppState extends State<MyApp> {
             return Locale(ApplicationConfig.defaultLanguage);
           },
           localeListResolutionCallback: (locales, Iterable<Locale> supportedLocales) {
-            // 监听系统语言切换
             osstpLoggerNoStack.d('locales:$locales');
             // return Locale(ApplicationConfig.defaultLanguage);
           },
+          builder: EasyLoading.init(),
         ),
       ),
     );

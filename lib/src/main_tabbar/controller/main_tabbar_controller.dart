@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/common/widget/getx_dialog_widget.dart';
+import 'package:osstp_flutter_hive/src/main_tabbar/model/advertisement_model.dart';
 import 'package:osstp_flutter_hive/src/mine/mine/page/mine_page.dart';
 import 'package:osstp_main_tabbar/osstp_main_tabbar.dart';
 import '../../../../../generated/l10n.dart';
