@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
           onGenerateRoute: Application.router?.generator,
           initialRoute: Routers.splashPage,
           navigatorObservers: [GlobalRouteObserver()],
-          locale: Get.deviceLocale,
+          // locale: kDebugMode ? Get.deviceLocale : null,
           supportedLocales: S.delegate.supportedLocales,
           localizationsDelegates: const [
             RefreshLocalizations.delegate,

@@ -1,4 +1,3 @@
-import 'dart:convert' as convert;
 import 'package:fluro/fluro.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:osstp_flutter_hive/src/modules/others/advertisement/page/adverti
 import '../main_tabbar/page/main_tabbar_page.dart';
 import '../mine/mine/page/mine_profile_page.dart';
 import '../mine/others/setting/page/setting_about_page.dart';
-import '../mine/others/setting/page/setting_auth_page.dart';
 import '../mine/others/setting/page/setting_change_language_page.dart';
 import '../mine/others/setting/page/setting_change_theme_page.dart';
 import '../mine/others/setting/page/setting_home_page.dart';

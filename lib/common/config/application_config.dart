@@ -1,4 +1,5 @@
 import 'package:osstp_flutter_hive/common/global/preferences_key.dart';
+import 'package:osstp_flutter_hive/common/utils/localizations_utils.dart';
 import 'package:osstp_local_storage/osstp_local_storage.dart';
 import 'package:osstp_network/osstp_network.dart';
 
@@ -17,6 +18,7 @@ class ApplicationConfig {
 
   initConfig() async {
     await OsstpLocalStorage.initConfig();
+    await LocalizationsUtils.current.defaultLocalizations();
     networkConfig();
   }
 

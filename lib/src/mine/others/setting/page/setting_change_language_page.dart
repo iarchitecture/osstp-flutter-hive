@@ -28,7 +28,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
   }
 
   localeLanguage() async {
-    language = await getLocaleLanguage();
+    language = await LocalizationsUtils.current.getLocaleDisplayLanguage();
     setState(() {});
   }
 
@@ -52,7 +52,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
                 contentTextAlign: TextAlign.center,
                 showCancelButton: true,
                 onConfirm: () async {
-                  bool result = await setLanguage(ApplicationConfig.defaultLanguage);
+                  bool result = await LocalizationsUtils.current.setLanguage(ApplicationConfig.defaultLanguage);
                   if (result == true) {
                     finishPush();
                   }
@@ -70,7 +70,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
                 contentTextAlign: TextAlign.center,
                 showCancelButton: true,
                 onConfirm: () async {
-                  bool result = await setLanguage(ApplicationConfig.supportLanguageEN);
+                  bool result = await LocalizationsUtils.current.setLanguage(ApplicationConfig.supportLanguageEN);
                   if (result == true) {
                     finishPush();
                   }
