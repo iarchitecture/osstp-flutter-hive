@@ -1,7 +1,7 @@
 {
   "tabbar_home": "Home",
   "tabbar_favorite": "Favorite",
-  "tabbar_mine": "Mine",
+  "tabbar_mine": "Me",
   "tabbar_module": "Module",
   "tabbar_more": "More",
 
@@ -17,13 +17,14 @@
   "setting_reset": "Reset",
   "setting_reset_or_not": "Do you want to reset?",
   "setting_reset_description": "Note: After resetting (Clearing user information and initializing the local database and will clear all saved data), preview the default content",
-  "setting_language": "Change Language",
-  "setting_theme": "Change Theme",
+  "setting_language": "Language",
+  "setting_theme": "Dark Mode",
   "setting_default_system": "System",
   "setting_system_description": "After it is enabled, it will follow the system to turn on or off the dark mode",
   "setting_handle_select": "Manual",
   "setting_normal_type": "Normal",
   "setting_dark_type": "Dark",
+  "setting_change_theme_alert": "New settings will take effect after restarting APP.",
   "setting_current_language": "Current Language",
   "setting_auth": "Authentication Setting",
 
@@ -53,6 +54,6 @@
   "general_release_to_load_more" : "Release to load more",
   "general_no_more_data" : "No more data",
 
-  "product_stock": "Stock"
+  "mine_profile_edit": "Profile"
 
 }

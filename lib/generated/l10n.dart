@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `Mine`
+  /// `Me`
   String get tabbar_mine {
     return Intl.message(
-      'Mine',
+      'Me',
       name: 'tabbar_mine',
       desc: '',
       args: [],
@@ -190,20 +190,20 @@ class S {
     );
   }
 
-  /// `Change Language`
+  /// `Language`
   String get setting_language {
     return Intl.message(
-      'Change Language',
+      'Language',
       name: 'setting_language',
       desc: '',
       args: [],
     );
   }
 
-  /// `Change Theme`
+  /// `Dark Mode`
   String get setting_theme {
     return Intl.message(
-      'Change Theme',
+      'Dark Mode',
       name: 'setting_theme',
       desc: '',
       args: [],
@@ -255,6 +255,16 @@ class S {
     return Intl.message(
       'Dark',
       name: 'setting_dark_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New settings will take effect after restarting APP.`
+  String get setting_change_theme_alert {
+    return Intl.message(
+      'New settings will take effect after restarting APP.',
+      name: 'setting_change_theme_alert',
       desc: '',
       args: [],
     );
@@ -500,11 +510,11 @@ class S {
     );
   }
 
-  /// `Stock`
-  String get product_stock {
+  /// `Profile`
+  String get mine_profile_edit {
     return Intl.message(
-      'Stock',
-      name: 'product_stock',
+      'Profile',
+      name: 'mine_profile_edit',
       desc: '',
       args: [],
     );

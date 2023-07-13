@@ -44,8 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_edit_template": MessageLookupByLibrary.simpleMessage("编辑模版"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "mine_favorite": MessageLookupByLibrary.simpleMessage("收藏"),
+        "mine_profile_edit": MessageLookupByLibrary.simpleMessage("编辑资料"),
         "mine_template": MessageLookupByLibrary.simpleMessage("模版"),
-        "product_stock": MessageLookupByLibrary.simpleMessage("库存"),
         "register": MessageLookupByLibrary.simpleMessage("注册"),
         "setting_about": MessageLookupByLibrary.simpleMessage("关于"),
         "setting_about_all_rights_reserved":
@@ -57,21 +57,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting_about_function_introduced":
             MessageLookupByLibrary.simpleMessage("功能介绍"),
         "setting_auth": MessageLookupByLibrary.simpleMessage("认证设置"),
+        "setting_change_theme_alert":
+            MessageLookupByLibrary.simpleMessage("新的设置需要重启APP才能生效"),
         "setting_current_language":
             MessageLookupByLibrary.simpleMessage("当前语言"),
         "setting_dark_type": MessageLookupByLibrary.simpleMessage("暗黑模式"),
         "setting_default_system": MessageLookupByLibrary.simpleMessage("跟随系统"),
         "setting_handle_select": MessageLookupByLibrary.simpleMessage("手动选择"),
-        "setting_language": MessageLookupByLibrary.simpleMessage("切换语言"),
+        "setting_language": MessageLookupByLibrary.simpleMessage("语言"),
         "setting_normal_type": MessageLookupByLibrary.simpleMessage("普通模式"),
         "setting_reset": MessageLookupByLibrary.simpleMessage("重置"),
         "setting_reset_description": MessageLookupByLibrary.simpleMessage(
-            "注意：重置（清空用户信息，初始化本地数据库，会清空所有已经保存数据）后，预览默认内容"),
+            "注意：重置后（清空用户信息，初始化本地数据库，会清空所有已经保存数据），预览默认内容"),
         "setting_reset_or_not": MessageLookupByLibrary.simpleMessage("是否重置？"),
         "setting_setting": MessageLookupByLibrary.simpleMessage("设置"),
         "setting_system_description":
             MessageLookupByLibrary.simpleMessage("开启后，将跟随系统打开或关闭深色模式"),
-        "setting_theme": MessageLookupByLibrary.simpleMessage("切换主题"),
+        "setting_theme": MessageLookupByLibrary.simpleMessage("暗黑模式"),
         "tabbar_favorite": MessageLookupByLibrary.simpleMessage("收藏"),
         "tabbar_home": MessageLookupByLibrary.simpleMessage("首页"),
         "tabbar_mine": MessageLookupByLibrary.simpleMessage("我的"),

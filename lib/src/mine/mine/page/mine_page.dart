@@ -48,9 +48,9 @@ class MinePage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return index == 0
                       ? MineHeaderView(
-                          authed: false,
+                          authed: true,
                           avatarCallback: () {
-                            // 头像
+
                           },
                           notAuthedCallback: () {
                             // Application.navigateWithParamsTo(context, Routes.loginPage)?.then((result) {
@@ -62,7 +62,7 @@ class MinePage extends StatelessWidget {
                             // });
                           },
                           itemCallback: () {
-                            Application.push(context, Routers.settingAboutPage)?.then((result) {});
+                            Application.push(context, Routers.mineProfilePage);
                           },
                         )
                       : MineBodyWidget(

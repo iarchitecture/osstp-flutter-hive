@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:osstp_flutter_hive/src/mine/others/setting/controller/SettingHomeController.dart';
 import '../../../../../common/config/application_config.dart';
 import '../../../../../common/utils/selected_item_model.dart';
 import '../../../../../common/utils/string_utils.dart';
@@ -37,63 +39,71 @@ class _SettingPageState extends State<SettingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(title: S.current.setting_setting),
-      body: SafeArea(
-          top: false,
-          child: ListView(
-            children: [
-              ListView.builder(
-                padding: const EdgeInsets.only(top: 10),
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) {
-                  return SettingHomeItem(
-                      needSpaceList: const [0, 1],
-                      context: context,
-                      index: index,
-                      onTapCallback: (callbackIndex) {
-                        navigationTo(itemList[callbackIndex].routesName!);
-                      },
-                      itemList: itemList);
-                },
-                itemCount: itemList.length,
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 88.0),
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
+    return GetBuilder(
+      init: SettingHomeController(),
+      initState: (state) {
+
+      },
+      builder: (controller) {
+        return Scaffold(
+          appBar: MainAppBar(title: S.current.setting_setting),
+          body: SafeArea(
+              top: false,
+              child: ListView(
+                children: [
+                  ListView.builder(
+                    padding: const EdgeInsets.only(top: 10),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index) {
+                      return SettingHomeItem(
+                          needSpaceList: const [0, 1],
+                          context: context,
+                          index: index,
+                          onTapCallback: (callbackIndex) {
+                            navigationTo(itemList[callbackIndex].routesName!);
+                          },
+                          itemList: itemList);
+                    },
+                    itemCount: itemList.length,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 88.0),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
                       children: [
-                        Expanded(
-                          child: ElevatedButtonWidget.normal(
-                            child: Text(S.of(context).setting_reset),
-                            onPressed: () {
-                              GetXDialog.show(
-                                  title: S.of(context).setting_reset_or_not,
-                                  showCancelButton: true,
-                                  onConfirm: () async {
-                                    bool result = await ApplicationConfig.instance.resetPreferencesData();
-                                    if (result == true) {
-                                      Application.popToSplashPage(context);
-                                    }
-                                  });
-                            },
-                          ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: ElevatedButtonWidget.normal(
+                                child: Text(S.of(context).setting_reset),
+                                onPressed: () {
+                                  GetXDialog.show(
+                                      title: S.of(context).setting_reset_or_not,
+                                      showCancelButton: true,
+                                      onConfirm: () async {
+                                        bool result = await ApplicationConfig.instance.resetPreferencesData();
+                                        if (result == true) {
+                                          Application.popToSplashPage(context);
+                                        }
+                                      });
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          "⚠️ ${S.of(context).setting_reset_description}",
+                          style: const TextStyle(fontSize: 12),
                         ),
                       ],
                     ),
-                    Text(
-                      "⚠️ ${S.of(context).setting_reset_description}",
-                      style: const TextStyle(fontSize: 12),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          )),
+                  ),
+                ],
+              )),
+        );
+      }
     );
   }
 

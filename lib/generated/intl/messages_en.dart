@@ -48,8 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Edit Template"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "mine_favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
+        "mine_profile_edit": MessageLookupByLibrary.simpleMessage("Profile"),
         "mine_template": MessageLookupByLibrary.simpleMessage("Template"),
-        "product_stock": MessageLookupByLibrary.simpleMessage("Stock"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "setting_about": MessageLookupByLibrary.simpleMessage("About"),
         "setting_about_all_rights_reserved":
@@ -62,14 +62,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Function introduced"),
         "setting_auth":
             MessageLookupByLibrary.simpleMessage("Authentication Setting"),
+        "setting_change_theme_alert": MessageLookupByLibrary.simpleMessage(
+            "New settings will take effect after restarting APP."),
         "setting_current_language":
             MessageLookupByLibrary.simpleMessage("Current Language"),
         "setting_dark_type": MessageLookupByLibrary.simpleMessage("Dark"),
         "setting_default_system":
             MessageLookupByLibrary.simpleMessage("System"),
         "setting_handle_select": MessageLookupByLibrary.simpleMessage("Manual"),
-        "setting_language":
-            MessageLookupByLibrary.simpleMessage("Change Language"),
+        "setting_language": MessageLookupByLibrary.simpleMessage("Language"),
         "setting_normal_type": MessageLookupByLibrary.simpleMessage("Normal"),
         "setting_reset": MessageLookupByLibrary.simpleMessage("Reset"),
         "setting_reset_description": MessageLookupByLibrary.simpleMessage(
@@ -79,10 +80,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "setting_setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "setting_system_description": MessageLookupByLibrary.simpleMessage(
             "After it is enabled, it will follow the system to turn on or off the dark mode"),
-        "setting_theme": MessageLookupByLibrary.simpleMessage("Change Theme"),
+        "setting_theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "tabbar_favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "tabbar_home": MessageLookupByLibrary.simpleMessage("Home"),
-        "tabbar_mine": MessageLookupByLibrary.simpleMessage("Mine"),
+        "tabbar_mine": MessageLookupByLibrary.simpleMessage("Me"),
         "tabbar_module": MessageLookupByLibrary.simpleMessage("Module"),
         "tabbar_more": MessageLookupByLibrary.simpleMessage("More")
       };

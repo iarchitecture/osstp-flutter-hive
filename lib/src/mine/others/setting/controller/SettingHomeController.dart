@@ -1,10 +1,12 @@
-import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-
-class SplashController extends SuperController {
+class SettingHomeController extends SuperController {
 
   @override
-  onInit() {}
+  void onInit() {
+    super.onInit();
+
+  }
 
   @override
   void onDetached() {
