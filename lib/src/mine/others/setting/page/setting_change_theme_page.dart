@@ -1,9 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:osstp_dynamic_theme/osstp_dynamic_theme.dart';
 import 'package:osstp_flutter_hive/common/theme/theme.dart';
 import 'package:osstp_flutter_hive/common/widget/main_app_bar.dart';
+import '../../../../../common/widget/getx_dialog_widget.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../routers/routers_navigator.dart';
 import '../view/setting_action_item.dart';
 
 /// change theme
@@ -64,8 +67,15 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
               style: const ButtonStyle(),
               child: Text(S.of(context).general_save),
               onPressed: () {
-                OsstpDynamicThemeWidget.of(context).setThemeMode(dynamicThemeMode: themeMode);
-                setState(() {});
+                GetXDialog.show(
+                  content: S.of(context).setting_change_theme_alert,
+                  contentTextAlign: TextAlign.center,
+                  showCancelButton: true,
+                  onConfirm: () async {
+                    OsstpDynamicThemeWidget.of(context).setThemeMode(dynamicThemeMode: themeMode);
+                    Application.popToSplashPage(context);
+                  },
+                );
               },
             ),
           ),
@@ -85,6 +95,7 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
                     // 跟随系统
                     Text(S.of(context).setting_default_system),
                     Switch(
+                      activeColor:  Colors.green,
                         value: followSystem,
                         onChanged: (value) async {
                           followSystem = !followSystem;
@@ -94,7 +105,7 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
                           } else {
                             // 切换时还原到当前设置的主题状态
                             if (await OsstpDynamicTheme.getThemeMode() == OsstpDynamicThemeMode.system) {
-                              final brightness = SchedulerBinding.instance.window.platformBrightness;
+                              final brightness = PlatformDispatcher.instance.platformBrightness;
                               darkSelect = brightness == Brightness.dark ? true : false;
                               darkSelect
                                   ? setThemeState(OsstpDynamicThemeMode.dark)

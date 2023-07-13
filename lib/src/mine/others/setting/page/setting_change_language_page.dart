@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../../../../../common/config/application_config.dart';
 import '../../../../../common/utils/localizations_utils.dart';
+import '../../../../../common/widget/getx_dialog_widget.dart';
 import '../../../../../common/widget/main_app_bar.dart';
 import '../../../../routers/routers_navigator.dart';
 import '../view/setting_action_item.dart';
@@ -34,9 +35,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(
-        title: S.of(context).setting_language),
-
+      appBar: MainAppBar(title: S.of(context).setting_language),
       body: ListView(
         children: [
           Container(
@@ -48,10 +47,17 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
             selected: true,
             selectedImage: Icons.arrow_forward,
             voidCallback: () async {
-              bool result = await setLanguage(ApplicationConfig.defaultLanguage);
-              if (result == true) {
-                finishPush();
-              }
+              GetXDialog.show(
+                content: S.of(context).setting_change_theme_alert,
+                contentTextAlign: TextAlign.center,
+                showCancelButton: true,
+                onConfirm: () async {
+                  bool result = await setLanguage(ApplicationConfig.defaultLanguage);
+                  if (result == true) {
+                    finishPush();
+                  }
+                },
+              );
             },
           ),
           SettingActionItem(
@@ -59,17 +65,23 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
             selected: true,
             selectedImage: Icons.arrow_forward,
             voidCallback: () async {
-              bool result = await setLanguage(ApplicationConfig.supportLanguageEN);
-              if (result == true) {
-                finishPush();
-              }
+              GetXDialog.show(
+                content: S.of(context).setting_change_theme_alert,
+                contentTextAlign: TextAlign.center,
+                showCancelButton: true,
+                onConfirm: () async {
+                  bool result = await setLanguage(ApplicationConfig.supportLanguageEN);
+                  if (result == true) {
+                    finishPush();
+                  }
+                },
+              );
             },
           ),
         ],
       ),
     );
   }
-
 
   finishPush() {
     /// 重新加载刷新语言类型

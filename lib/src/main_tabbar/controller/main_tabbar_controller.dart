@@ -58,12 +58,12 @@ class MainTabBarController extends SuperController {
       return;
     }
     osstpLogger.d('Inactive Page: show');
-    GetXDialog.general(
-      navigatorKey: tempNavigatorKey,
-      pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
-        return const InactivePage();
-      },
-    );
+    // GetXDialog.general(
+    //   navigatorKey: tempNavigatorKey,
+    //   pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+    //     return const InactivePage();
+    //   },
+    // );
   }
 
   @override
@@ -71,9 +71,9 @@ class MainTabBarController extends SuperController {
 
   @override
   void onResumed() {
-    if (Navigator.of(Get.context ?? tempNavigatorKey!.currentState!.overlay!.context).canPop()) {
-      osstpLogger.d('Inactive Page: dismiss');
-      Navigator.of(Get.context ?? tempNavigatorKey!.currentState!.overlay!.context).pop();
-    }
+    // if (Navigator.of(Get.context ?? tempNavigatorKey!.currentState!.overlay!.context).canPop()) {
+    //   osstpLogger.d('Inactive Page: dismiss');
+    //   Navigator.of(Get.context ?? tempNavigatorKey!.currentState!.overlay!.context).pop();
+    // }
   }
 }

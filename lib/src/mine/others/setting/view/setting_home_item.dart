@@ -37,7 +37,6 @@ class SettingHomeItem extends StatelessWidget {
               onTapCallback(index);
             },
             child: Container(
-              color: Colors.transparent,
               margin: const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 15),
               child: Row(
                 children: [

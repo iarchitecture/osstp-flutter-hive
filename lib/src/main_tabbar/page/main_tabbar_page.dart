@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:convert' as convert;
 import 'package:osstp_main_tabbar/osstp_main_tabbar.dart';
 import '../controller/main_tabbar_controller.dart';
 import '../view/main_tabbar_indexed_stack_view.dart';
@@ -18,7 +17,7 @@ class _MainTabBarPageState extends State<MainTabBarPage> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this, initialIndex: 1);
+    _tabController = TabController(length: 3, vsync: this, initialIndex: 2);
   }
 
   @override

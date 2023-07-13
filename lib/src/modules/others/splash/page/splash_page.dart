@@ -2,7 +2,6 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/common/global/constant.dart';
-import 'package:osstp_flutter_hive/common/utils/push_arguments.dart';
 import 'package:osstp_local_storage/osstp_local_storage.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../../../../../common/config/application_config.dart';
@@ -46,8 +45,8 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 30, bottom: 117.0),
-                      child: linerIndicator(voidCallback: () {
-                        newPage(context);
+                      child: _linerIndicator(voidCallback: () {
+                        _newPage(context);
                       }),
                     ),
                   ],
@@ -69,9 +68,9 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.android_rounded,
                             color: Colors.white,
@@ -95,7 +94,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     );
   }
 
-  linerIndicator({VoidCallback? voidCallback}) {
+  _linerIndicator({VoidCallback? voidCallback}) {
     return LinearPercentIndicator(
       width: 160,
       animation: true,
@@ -113,9 +112,9 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     );
   }
 
-  Future<void> newPage(BuildContext context) async {
+  _newPage(BuildContext context) {
     String routing = "";
-    bool? hasDisplay = await OsstpLocalStorage.fromPrefs(LocalStoreKey.guideHasDisplay, isBoolValue: true);
+    bool? hasDisplay = OsstpLocalStorage.fromPrefs(LocalStoreKey.guideHasDisplay, isBoolValue: true);
     if (hasDisplay == true) {
       routing = Routers.mainTabBar;
     } else {
@@ -123,14 +122,14 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     }
     final args = context.settings?.arguments;
     if (args != null) {
-      Application.pop(this.context);
+      Application.pop(context);
     } else {
-      Application.push(this.context, routing, replace: true)?.then((value) {});
+      Application.push(context, routing, replace: true);
     }
   }
 
-  // Future<void> newPage() async {
-  //   bool? hasDisplay = await OsstpLocalStorage.fromPrefs(LocalStoreKey.guideHasDisplay, isBoolValue: true);
+  // _newPage() {
+  //   bool? hasDisplay = OsstpLocalStorage.fromPrefs(LocalStoreKey.guideHasDisplay, isBoolValue: true);
   //   if (hasDisplay == true) {
   //     // Get.to(() => const MainTabBarPage());
   //     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
@@ -144,8 +143,4 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
   //   }
   // }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
 }

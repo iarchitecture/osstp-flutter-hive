@@ -109,7 +109,7 @@ class _GuidePageState extends State<GuidePage> {
                         margin: const EdgeInsets.fromLTRB(0.0, 40.0, 10.0, 0.0),
                         child: TextButton(
                           onPressed: () {
-                            newHomePage(context);
+                            _newHomePage(context);
                           },
                           child: const Text(
                             "CLOSE",
@@ -126,7 +126,7 @@ class _GuidePageState extends State<GuidePage> {
         });
   }
 
-  void newHomePage(BuildContext context) {
+  void _newHomePage(BuildContext context) {
     final args = context.settings?.arguments;
     if (args != null) {
       Application.pop(this.context);
@@ -134,7 +134,7 @@ class _GuidePageState extends State<GuidePage> {
       Application.router?.navigateTo(context, Routers.mainTabBar, replace: true).then((result) {});
     }
   }
-  // void newHomePage() {
+  // void _newHomePage() {
   //   // Get.to(const MainTabBarPage());
   //   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (builder) {
   //     return const MainTabBarPage();

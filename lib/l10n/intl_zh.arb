@@ -16,14 +16,15 @@
   "setting_setting": "设置",
   "setting_reset": "重置",
   "setting_reset_or_not": "是否重置？",
-  "setting_reset_description": "注意：重置（清空用户信息，初始化本地数据库，会清空所有已经保存数据）后，预览默认内容",
-  "setting_language": "切换语言",
-  "setting_theme": "切换主题",
+  "setting_reset_description": "注意：重置后（清空用户信息，初始化本地数据库，会清空所有已经保存数据），预览默认内容",
+  "setting_language": "语言",
+  "setting_theme": "暗黑模式",
   "setting_default_system": "跟随系统",
   "setting_system_description": "开启后，将跟随系统打开或关闭深色模式",
   "setting_handle_select": "手动选择",
   "setting_normal_type": "普通模式",
   "setting_dark_type": "暗黑模式",
+  "setting_change_theme_alert": "新的设置需要重启APP才能生效",
   "setting_current_language": "当前语言",
   "setting_auth": "认证设置",
 
@@ -53,6 +54,6 @@
   "general_release_to_load_more" : "加载更多",
   "general_no_more_data" : "没有更多数据",
 
-  "product_stock": "库存"
+  "mine_profile_edit": "编辑资料"
 
 }

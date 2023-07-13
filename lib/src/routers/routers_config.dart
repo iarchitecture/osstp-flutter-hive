@@ -16,6 +16,8 @@ class Routers {
   static const String loginPage = "/login_page";
   static const String registerPage = "/register_page";
 
+  static const String mineProfilePage = "/mine_profile_page";
+
   static String getPageName(String? router) {
     switch (router) {
       case Routers.splashPage:
@@ -36,6 +38,8 @@ class Routers {
         return '认证画面';
       case Routers.settingAboutPage:
         return '关于画面';
+      case Routers.mineProfilePage:
+        return '编辑资料画面';
       default:
         return '';
     }
@@ -69,7 +73,8 @@ class RoutersConfig {
     // router.define(Routers.settingAuthPage, handler: settingAuthPageHandler, transitionType: TransitionType.inFromRight);
     router.define(Routers.settingAboutPage,
         handler: settingAboutPageHandler, transitionType: TransitionType.inFromRight);
-    // router.define(Routers.loginPage, handler: loginPageHandler, transitionType: TransitionType.inFromRight);
+
+    router.define(Routers.mineProfilePage, handler: mineProfilePageHandler, transitionType: TransitionType.inFromRight);
     // router.define(Routers.registerPage, handler: registerPageHandler, transitionType: TransitionType.inFromRight);
     // router.define(Routers.libChartPage, handler: libChartPageHandler, transitionType: TransitionType.inFromRight);
     // router.define(Routers.editPage, handler: editPageRouteHandler, transitionType: TransitionType.inFromRight);

@@ -41,7 +41,7 @@ class ModulePage extends StatelessWidget {
                       routeSettings: RouteSettings(
                         arguments: PushArguments(action: true), // 参数识别关闭方式
                       ),
-                    )?.then((result) {});
+                    );
                   },
                 );
               },

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:osstp_flutter_hive/src/modules/others/advertisement/page/advertisement_page.dart';
 
 import '../main_tabbar/page/main_tabbar_page.dart';
+import '../mine/mine/page/mine_profile_page.dart';
 import '../mine/others/setting/page/setting_about_page.dart';
 import '../mine/others/setting/page/setting_auth_page.dart';
 import '../mine/others/setting/page/setting_change_language_page.dart';
@@ -99,10 +100,11 @@ var settingChangeThemePageHandler = Handler(handlerFunc: (BuildContext? context,
 // return DemoSimpleComponent(message: message, color: color, result: result);
   return const ChangeThemePage();
 });
-// var settingAuthPageHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-// // return DemoSimpleComponent(message: message, color: color, result: result);
-//   return const SettingAuthPage();
-// });
+
+var mineProfilePageHandler = Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+// return DemoSimpleComponent(message: message, color: color, result: result);
+  return const MineProfilePage();
+});
 
 //
 // /// Handles deep links into the app
