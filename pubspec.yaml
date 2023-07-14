@@ -62,13 +62,13 @@ dependencies:
   pull_to_refresh_flutter3: 2.0.1
   # custom
   osstp_main_tabbar:
-    path: plugins/osstp_main_tabbar
+    path: plugins/osstp-main-tabbar/osstp_main_tabbar
   osstp_local_storage:
-    path: plugins/osstp_local_storage
+    path: plugins/osstp-local-storage/osstp_local_storage
   osstp_dynamic_theme:
-    path: plugins/osstp_dynamic_theme
+    path: plugins/osstp-dynamic-theme/osstp_dynamic_theme
   osstp_network:
-    path: plugins/osstp_network
+    path: plugins/osstp-network/osstp_network
 
 dev_dependencies:
   flutter_test:

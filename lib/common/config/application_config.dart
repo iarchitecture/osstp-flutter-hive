@@ -8,7 +8,6 @@ class ApplicationConfig {
   static ApplicationConfig get instance => _instance;
 
   /// App Name
-  static String osstpProjectName = "HIVE";
   static String osstpBundleName = "HIVE";
   static String osstpBundleVersion = "1.0.0";
 
@@ -18,7 +17,8 @@ class ApplicationConfig {
 
   initConfig() async {
     await OsstpLocalStorage.initConfig();
-    await LocalizationsUtils.current.defaultLocalizations();
+    await LocalizationsUtils.current.initConfig();
+
     networkConfig();
   }
 
