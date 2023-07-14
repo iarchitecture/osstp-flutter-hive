@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:osstp_flutter_hive/src/mine/others/setting/controller/SettingHomeController.dart';
 import '../../../../../common/config/application_config.dart';
 import '../../../../../common/utils/selected_item_model.dart';
-import '../../../../../common/utils/string_utils.dart';
 import '../../../../../common/widget/elevated_button_widget.dart';
 import '../../../../../common/widget/getx_dialog_widget.dart';
 import '../../../../../common/widget/main_app_bar.dart';
