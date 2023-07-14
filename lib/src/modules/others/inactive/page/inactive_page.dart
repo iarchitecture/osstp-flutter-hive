@@ -28,21 +28,23 @@ class _InactivePageState extends State<InactivePage> with SingleTickerProviderSt
           child: Scaffold(
             backgroundColor: ThemeColors.primaryBackgroundThemeColor(context),
             body: WillPopScope(
-              onWillPop: () async { return false; },
+              onWillPop: () async {
+                return false;
+              },
               child: Stack(
                 children: <Widget>[
-                  Center(
+                  const Center(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.hive_rounded,
-                            color: Colors.white,
-                            size: 120,
-                          ),
-                        ],
-                      )),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.hive_rounded,
+                        color: Colors.white,
+                        size: 120,
+                      ),
+                    ],
+                  )),
                   Container(
                     alignment: Alignment.bottomCenter,
                     margin: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 30.0),
@@ -60,9 +62,9 @@ class _InactivePageState extends State<InactivePage> with SingleTickerProviderSt
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(
                               Icons.android_rounded,
                               color: Colors.white,
@@ -85,29 +87,5 @@ class _InactivePageState extends State<InactivePage> with SingleTickerProviderSt
         );
       },
     );
-  }
-
-  linerIndicator({VoidCallback? voidCallback}) {
-    return LinearPercentIndicator(
-      width: 160,
-      animation: true,
-      lineHeight: 10.0,
-      animationDuration: 1500,
-      percent: 1.0,
-      barRadius: const Radius.circular(5),
-      progressColor: Colors.transparent,
-      alignment: MainAxisAlignment.center,
-      onAnimationEnd: () {
-        if (voidCallback != null) {
-          voidCallback();
-        }
-      },
-    );
-  }
-
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 }

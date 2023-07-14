@@ -1,4 +1,3 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../../../../../common/config/application_config.dart';
 import '../../../../../common/utils/localizations_utils.dart';
@@ -54,7 +53,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
                 onConfirm: () async {
                   bool result = await LocalizationsUtils.current.setLanguage(ApplicationConfig.defaultLanguage);
                   if (result == true) {
-                    finishPush();
+                    _finishPush();
                   }
                 },
               );
@@ -72,7 +71,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
                 onConfirm: () async {
                   bool result = await LocalizationsUtils.current.setLanguage(ApplicationConfig.supportLanguageEN);
                   if (result == true) {
-                    finishPush();
+                    _finishPush();
                   }
                 },
               );
@@ -83,8 +82,7 @@ class _ChangeLanguagePageState extends State<ChangeLanguagePage> {
     );
   }
 
-  finishPush() {
-    /// 重新加载刷新语言类型
+  _finishPush() {
     Application.popToSplashPage(context);
   }
 }

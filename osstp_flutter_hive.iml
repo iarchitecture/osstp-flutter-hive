@@ -120,6 +120,9 @@
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/camera_avfoundation/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/camera_avfoundation/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/camera_avfoundation/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/osstp-dynamic-theme/osstp_dynamic_theme/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/osstp-dynamic-theme/osstp_dynamic_theme/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/osstp-dynamic-theme/osstp_dynamic_theme/example/.pub" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />

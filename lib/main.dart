@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
           defaultGlobalState: true,
           enableLog: false,
           logWriterCallback: _localLogWriter,
-          title: ApplicationConfig.osstpProjectName,
+          title: ApplicationConfig.osstpBundleName,
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: systemThemeModel,
